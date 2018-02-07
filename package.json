@@ -8,7 +8,6 @@
   "author": "Adam Bugaj",
   "license": "MIT",
   "scripts": {
-    "serve": "live-server public/",
     "build:dev": "webpack",
     "build:prod": "webpack -p --env production",
     "dev-server": "webpack-dev-server",
@@ -27,7 +26,6 @@
     "css-loader": "^0.28.8",
     "express": "^4.16.2",
     "extract-text-webpack-plugin": "3.0.0",
-    "jest": "^22.1.4",
     "live-server": "^1.2.0",
     "moment": "^2.20.1",
     "node-sass": "^4.7.2",
@@ -44,7 +42,10 @@
     "style-loader": "^0.19.1",
     "uuid": "^3.2.1",
     "validator": "9.2.0",
-    "webpack": "3.10.0",
+    "webpack": "3.10.0"
+  },
+  "devDependencies": {
+    "jest": "^22.1.4",
     "webpack-dev-server": "2.5.1"
   }
 }
