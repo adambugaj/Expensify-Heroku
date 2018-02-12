@@ -15,6 +15,10 @@ firebase.initializeApp(config);
 
 const database = firebase.database();
 
+export { firebase, database as default };
+
+
+
 // firebase.database().ref().set({
 //   name: 'Adam Bugaj',
 //   age: 24,
@@ -106,21 +110,46 @@ const database = firebase.database();
 //   body: 'Buy food'
 // });
 
-const storageNotes = {
-  expenses: {
-    example: {
-      title: 'Full-Stuck',
-      company: 'Google'
-    }
-  }
-};
-
-
-database.ref('expenses').push({
-  title: 'web dev',
-  company: 'Amazon'
-});
-
-database.ref('expenses/-L4qpqdddtmhSZyhFu_O').update({
-  company: "Microsoft"
-})
+// const storageNotes = {
+//   expenses: {
+//     example: {
+//       title: 'Full-Stuck',
+//       company: 'Google'
+//     }
+//   }
+// };
+//
+// // database.ref('expenses').push({
+// //   title: 'web dev',
+// //   company: 'Amazon'
+// // });
+//
+// database.ref('expenses/-L58smzlr93YqUQx364v').update({
+//   company: "Microsoft"
+// });
+//
+// database.ref('expenses').on('value', (snapshot) => {
+//     const expenses = [];
+//
+//     snapshot.forEach((childSnapshot) => {
+//       console.log(childSnapshot);
+//       expenses.push({
+//         id: childSnapshot.key,
+//         ...childSnapshot.val()
+//       });
+//     });
+//     console.log(expenses);
+//   });
+//
+//   // database.ref('expenses').push({
+//   //   title: 'Software engeener',
+//   //   company: 'Spacex'
+//   // });
+//
+//   database.ref('expenses/-L58vxNG5oPJ88qYkO8A').update({
+//     experience: '5 years'
+//   });
+//
+// database.ref('expenses').on('child_changed', (snapshot) => {
+//   console.log(snapshot.key, snapshot.val());
+// });
