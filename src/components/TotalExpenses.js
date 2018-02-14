@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import selectExpenses from '../selectors/expenses.js';
 
 const TotalExpenses = (props) => {
@@ -11,19 +12,19 @@ const TotalExpenses = (props) => {
     return totalAmount;
   });*/
   return (
-    <div>
-      <p>Total Amount:
-        {props.expenses.map((expense) => expense.amount)
-          .reduce((sum, val) => {
-            return sum + val; // you can remove return and curly brackets
-          }, 0)
-        }
-      </p>
-      <p>Total Expenses:
-        {
-          props.expenses.length
-        }
-      </p>
+    <div className="page-header">
+      <div className="content-conatainer">
+        <h2 className="page-header__title">
+          Viewing <span>{ props.expenses.length }</span> expenses of <span>
+              {props.expenses.map((expense) => expense.amount)
+              .reduce((sum, val) => {
+                return sum + val; // you can remove return and curly brackets
+              }, 0)}</span>$
+        </h2>
+        <div className="page-header__actions">
+          <Link className="button" to="/create" activeClassName="is-active">Create</Link>
+        </div>
+      </div>
     </div>
   );
 };

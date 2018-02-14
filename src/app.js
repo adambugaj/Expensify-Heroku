@@ -6,7 +6,7 @@ import './styles/styles.scss';
 import AppRouter, { history } from './routers/AppRouter';
 import configureStore from './store/configureStore';
 import { startSetExpenses } from './actions/expenses';
-import { setTextFilter } from './actions/filters';
+import { login, logout } from './actions/auth';
 import getVisibleExpenses from './selectors/expenses';
 import { removeExpense } from './actions/expenses';
 import { firebase } from './firebase/firebase';
@@ -48,14 +48,16 @@ ReactDOM.render(<p>Loading...</p>, document.getElementById('app'));
 // do after clicked buttons
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
+    store.dispatch(login(user.uid));
     store.dispatch(startSetExpenses()).then(() => {
-      renderApp()
+      renderApp();
     });
     if (history.location.pathname === '/') {
+      console.log('uid', user.uid);
       history.push('/dashboard');
     }
-    console.log('Log in');
   } else {
+    store.dispatch(logout());
     renderApp();
     history.push('/')
     console.log('Log out');
