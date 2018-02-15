@@ -22,7 +22,7 @@ const TotalExpenses = (props) => {
               }, 0)}</span>$
         </h2>
         <div className="page-header__actions">
-          <Link className="button" to="/create" activeClassName="is-active">Create</Link>
+          <Link className="button" to="/create">Create</Link>
         </div>
       </div>
     </div>
