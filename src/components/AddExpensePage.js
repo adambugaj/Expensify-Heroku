@@ -5,7 +5,13 @@ import { startAddExpense } from '../actions/expenses';
 
 const AddExpensePage = (props) => (
   <div>
-    <h1>Add Expense</h1>
+
+    <div className="page-header">
+      <div className="content-conatainer">
+        <h1>Add Expense</h1>
+      </div>
+    </div>
+    <div className="content-conatainer">
     <FormExpense
       // Parameter (expense) must have been changed to save the next review
       onSubmit={(expense) => {
@@ -14,6 +20,7 @@ const AddExpensePage = (props) => (
         props.history.push('/');
       }}
     />
+    </div>
   </div>
 );
 

@@ -5,13 +5,15 @@ import { Link } from 'react-router-dom';
 const ExpenseListItem = ({description, amount, createdAt, id, dispatch}) => {
   console.log(description);
   return (
-    <div>
-      <Link to={`/edit/${id}`}>
-      <h3>{description}</h3>
-      </Link>
-      <p>Amount: {amount} Date: {createdAt}</p>
-      <button><Link to={`/edit/${id}`}>Edit</Link></button>
-    </div>
+      <div>
+        <Link className="list-item" to={`/edit/${id}`}>
+          <div>
+            <h3 className="list-item__title">{description}</h3>
+            <span className="list-item__sub-title">Date: {createdAt}</span>
+          </div>
+          <h3>Amount: {amount} </h3>
+        </Link>
+      </div>
   )
 }
 
