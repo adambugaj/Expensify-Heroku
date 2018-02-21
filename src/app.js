@@ -10,7 +10,7 @@ import { login, logout } from './actions/auth';
 import getVisibleExpenses from './selectors/expenses';
 import { removeExpense } from './actions/expenses';
 import { firebase } from './firebase/firebase';
-
+import LoadingPage from './components/LoadingPage';
 
 const store = configureStore()
 /*
@@ -43,9 +43,9 @@ const renderApp = () => {
   }
 };
 
-ReactDOM.render(<p>Loading...</p>, document.getElementById('app'));
+ReactDOM.render(<LoadingPage />, document.getElementById('app'));
 
-// do after clicked buttons
+//do after clicked buttons
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     store.dispatch(login(user.uid));

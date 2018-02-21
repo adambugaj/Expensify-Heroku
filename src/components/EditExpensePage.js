@@ -5,8 +5,7 @@ import { startEditExpense } from '../actions/expenses';
 import { startRemoveExpense } from '.././actions/expenses';
 
 const EditExpensePage = (props) => {
-  console.log(props);
-  return(
+  return (
   <div>
     <div className="page-header">
       <div className="content-conatainer">
@@ -40,6 +39,6 @@ const mapStateToProps = (state, props) => {
       return expense.id === props.match.params.id;
     })
   };
-}
+};
 
 export default connect(mapStateToProps)(EditExpensePage);
